@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+const App = () => {
+  const [red, setRed] = useState(true);
+  const [blue, setBlue] = useState(true);
+  const [green, setGreen] = useState(true);
 
-function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="dflexx">
+        <div
+          className="divBorder"
+          style={{ backgroundColor: `${red ? "white" : "red"}` }}
+        ></div>
+        <div
+          className="divBorder"
+          style={{ backgroundColor: `${blue ? "white" : "blue"}` }}
+        ></div>
+        <div
+          className="divBorder"
+          style={{ backgroundColor: `${green ? "white" : "green"}` }}
+        ></div>
+      </div>
+
+      <div style={{display:"flex",justifyContent:"space-around",marginTop:"1rem"}}>
+        <button onClick={() => setRed(!red)}>{red ? "Red" : "reset"}</button>
+        <button onClick={() => setBlue(!blue)}>
+          {blue ? "Blue" : "Reset"}
+        </button>
+        <button onClick={() => setGreen(!green)}>
+          {green ? "Green" : "Reset"}
+        </button>
+      </div>
+    </>
   );
-}
+};
 
 export default App;
